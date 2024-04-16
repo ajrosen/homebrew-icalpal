@@ -21,11 +21,25 @@ class Icalpal < Formula
   end
 
   test do
+    checksums = [
+      "ace7eaa25df2c1228c707c4b4f0e4312eac8b1fc0b1bedbd1b45c1f633c8a1ec",
+      "a61d9cdafe86f55ca5af4601eba3cf7cd55bc6a3b75a5639ddfb51e030179de2",
+      "85904ee48c89c4ca5e7adb297ed5a65b5f1272f0b803ecdde1e6b848ddc75d4f",
+    ]
+    testsums = []
+
     resource("testdata").stage do
       ["calendars", "stores"].each do |t|
         system "#{bin}/icalPal -c #{t} --db Calendar.sqlitedb --cf /dev/null > #{t}"
+        testsums.push(Digest::SHA256.hexdigest(File.read(t)))
       end
-      system "sha256sum", "-c", "sha256sum"
+
+      ["tasks"].each do |t|
+        system "#{bin}/icalPal -c #{t} --db . --cf /dev/null > #{t}"
+        testsums.push(Digest::SHA256.hexdigest(File.read(t)))
+      end
+
+      checksums == testsums
     end
   end
 end
