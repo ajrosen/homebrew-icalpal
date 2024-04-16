@@ -9,7 +9,7 @@ class Icalpal < Formula
 
   resource "testdata" do
     url "https://github.com/ajrosen/icalPal/raw/main/test/testdata.tar.gz"
-    sha256 "298f95ce9d54c7434602bd6f3bd22aba67cfcc8cd14ddefe1549cf71a7c6edd4"
+    sha256 "c9ce172f6e38efc2c54f73cf3d07fa0221e63ac5a0e266eb87f0808559eb5b1b"
   end
 
   def install
