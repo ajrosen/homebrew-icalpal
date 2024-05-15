@@ -1,8 +1,8 @@
 class Icalpal < Formula
   desc "Command-line tool to query a macOS Calendar or Reminders database for accounts, calendars, events, and tasks"
   homepage "https://github.com/ajrosen/icalPal"
-  url "https://github.com/ajrosen/icalPal/archive/refs/tags/2.1.0.tar.gz"
-  sha256 "fb1b9d100dbf33d8f3aa3646bcfb096dd6aae6a768a98a571bbdf4fde35eb2ff"
+  url "https://github.com/ajrosen/icalPal/archive/refs/tags/2.2.0.tar.gz"
+  sha256 "41f78e0b8fe81ec5185f7736bf3e26805f218dcb01af8c2e97fe61c9713ee4d4"
   license "GPL-3.0-or-later"
 
   uses_from_macos "ruby"
