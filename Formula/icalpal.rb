@@ -1,8 +1,8 @@
 class Icalpal < Formula
   desc "Command-line tool to query a macOS Calendar or Reminders database for accounts, calendars, events, and tasks"
   homepage "https://github.com/ajrosen/icalPal"
-  url "https://github.com/ajrosen/icalPal/archive/refs/tags/2.2.0.tar.gz"
-  sha256 "41f78e0b8fe81ec5185f7736bf3e26805f218dcb01af8c2e97fe61c9713ee4d4"
+  url "https://github.com/ajrosen/icalPal/archive/refs/tags/icalpal-3.0.0.tar.gz"
+  sha256 "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
   license "GPL-3.0-or-later"
 
   uses_from_macos "ruby"
@@ -30,12 +30,12 @@ class Icalpal < Formula
 
     resource("testdata").stage do
       ["calendars", "stores"].each do |t|
-        system "#{bin}/icalPal -c #{t} --db Calendar.sqlitedb --cf /dev/null > #{t}"
+        system "#{bin}/icalpal -c #{t} --db Calendar.sqlitedb --cf /dev/null > #{t}"
         testsums.push(Digest::SHA256.hexdigest(File.read(t)))
       end
 
       ["tasks"].each do |t|
-        system "#{bin}/icalPal -c #{t} --db . --cf /dev/null > #{t}"
+        system "#{bin}/icalpal -c #{t} --db . --cf /dev/null > #{t}"
         testsums.push(Digest::SHA256.hexdigest(File.read(t)))
       end
 
